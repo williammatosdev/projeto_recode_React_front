@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import Home from "./page/Home";
+import Destino from "./page/Destino";
+import Contato from "./page/Contatos";
+import Promocoes from "./page/Promocoes";
+import Cadastro from "./page/Cadastro";
 function App() {
+  const url = window.location.href;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {
+        url === 'http://localhost:3000/Home' 
+        ? <Home/>
+        : url === 'http://localhost:3000/Destino' 
+        ? <Destino/>
+        : url === 'http://localhost:3000/Promocoes' 
+        ? <Promocoes/>
+        : url === 'http://localhost:3000/Contato' 
+        ? <Contato/>
+        : url === 'http://localhost:3000/Cadastro' 
+        ? <Cadastro/>        
+        : <Home/>
+      }
     </div>
   );
-}
-
+    }
 export default App;
